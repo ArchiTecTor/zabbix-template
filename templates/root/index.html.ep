@@ -1,0 +1,618 @@
+% layout 'default';
+<script>
+	$(document).ready(function(){
+		
+		new Legend({
+			id: 'be-legend',
+			data:[
+				{name: 'be-231'},
+				{name: 'be-232'},
+				{name: 'be-233'},
+				{name: 'be-234'},
+				{name: 'be-235'},
+				{name: 'be-236'},
+				{name: 'be-237'},
+				{name: 'be-238'},
+				{name: 'be-239'},
+				{name: 'be-240'},
+				{name: 'be-241'},
+				{name: 'be-242'},
+			],
+			graphs: [
+				new Graph({
+					id: '.be-memory', 
+					minY: 0, 
+					maxY: 100, 
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'MEMORY USED %', 
+					postfixY: ' %',
+					greenLevel: 0,
+					yellowLevel: 80,
+					redLevel: 90,
+					items: [
+						{id: '231-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-231'},
+						{id: '232-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-232'},
+						{id: '233-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-233'},
+						{id: '234-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-234'},
+						{id: '235-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-235'},
+						{id: '236-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-236'},
+						{id: '237-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-237'},
+						{id: '238-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-238'},
+						{id: '239-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-239'},
+						{id: '240-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-240'},
+						{id: '241-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-241'},
+						{id: '242-mem', updater: 'zabbix', 'key_': 'vm.memory.size[pused]', host: 'be-242'},
+					]
+				}),
+				
+				new Graph({
+					id: '.be-cpu',
+					maxY: 10, 
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'Load-Average(1min)',
+					greenLevel: 0,
+					yellowLevel: 5,
+					redLevel: 12,
+					items: [
+						{id: '231-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-231'},
+						{id: '232-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-232'},
+						{id: '233-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-233'},
+						{id: '234-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-234'},
+						{id: '235-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-235'},
+						{id: '236-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-236'},
+						{id: '237-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-237'},
+						{id: '238-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-238'},
+						{id: '239-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-239'},
+						{id: '240-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-240'},
+						{id: '241-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-241'},
+						{id: '242-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'be-242'},
+					]
+				}),
+
+				new Graph({
+					id: '.be-net-in-eth0',
+					maxY: 90*1024*1024,
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'NET OUT (bit/s)',
+					greenLevel: 0,
+					yellowLevel: 80*1024*1024,
+					redLevel: 90*1024*1024,
+					items: [
+						{id: '231-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-231'},
+						{id: '232-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-232'},
+						{id: '233-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-233'},
+						{id: '234-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-234'},
+						{id: '235-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-235'},
+						{id: '236-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-236'},
+						{id: '237-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-237'},
+						{id: '238-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-238'},
+						{id: '239-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-239'},
+						{id: '240-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-240'},
+						{id: '241-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-241'},
+						{id: '242-net-in-eth0', updater: 'zabbix', 'key_': 'net.if.out[eth0]', host: 'be-242'},
+					]
+				}),
+
+				new Graph({
+					id: '.be-httpd-count',
+					maxY: 70,
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'HTTPD WORKERS',
+					greenLevel: 1,
+					yellowLevel: 50,
+					redLevel: 64,
+					items: [
+						{id: '231-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-231'},
+						{id: '232-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-232'},
+						{id: '233-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-233'},
+						{id: '234-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-234'},
+						{id: '235-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-235'},
+						{id: '236-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-236'},
+						{id: '237-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-237'},
+						{id: '238-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-238'},
+						{id: '239-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-239'},
+						{id: '240-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-240'},
+						{id: '241-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-241'},
+						{id: '242-proc.num[httpd]', updater: 'zabbix', 'key_': 'proc.num[httpd]', host: 'be-242'},
+					]
+				}),
+				new Graph({
+					id: '.be-twemcache-connections',
+					maxY: 100,
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'TWEMCACHE conn',
+					greenLevel: 5,
+					yellowLevel: 200,
+					redLevel: 250,
+					
+					items: [
+						{id: '231-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-231'},
+						{id: '232-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-232'},
+						{id: '233-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-233'},
+						{id: '234-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-234'},
+						{id: '235-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-235'},
+						{id: '236-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-236'},
+						{id: '237-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-237'},
+						{id: '238-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-238'},
+						{id: '239-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-239'},
+						{id: '240-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-240'},
+						{id: '241-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-241'},
+						{id: '242-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-242'},
+					]
+				})
+		
+			]
+		});
+
+		
+		
+
+		
+
+
+		var triggersBE = [];
+		var hosts = ['be-231','be-232','be-233','be-234','be-235','be-236','be-237','be-238','be-239','be-240','be-241','be-242'];
+		for(var id in hosts) {
+			var host = hosts[id];
+			triggersBE.push(
+				new Trigger({
+					id: '.trigger-cpu-'+host,
+					trigger: {host: ''+host, id: 'trigger-cpu-'+host, updater: 'zabbix', description: 'Processor load is too high on {HOST.NAME}'},
+					interval: site.triggerInterval
+				}),
+				new Trigger({
+					id: '.trigger-mem-'+host,
+					trigger: {host: ''+host, id: 'trigger-mem-'+host, updater: 'zabbix', description: 'Used memory on {HOST.NAME} > 95%'},
+					interval: site.triggerInterval
+				}),
+				new Trigger({
+					id: '.trigger-disk-'+host,
+					trigger: {host: ''+host, id: 'trigger-disk-'+host, updater: 'zabbix', description: 'Free disk space is less than 20% on volume /'},
+					interval: site.triggerInterval
+				}),
+				new Trigger({
+					id: '.trigger-uptime-'+host,
+					trigger: {host: ''+host, id: 'trigger-uptime-'+host, updater: 'zabbix', description: 'Free disk space is less than 20% on volume /'},
+					interval: site.triggerInterval
+				}),
+				new Trigger({
+					id: '.Apache-workers-'+host,
+					trigger: {host: ''+host, id: 'Apache-workers-'+host, updater: 'zabbix', description: 'Apache proc.num > 50'},
+					interval: site.triggerInterval
+				})
+			);
+		}
+
+
+		new TriggerPanel({ 
+			onGreen: function(){
+				$('#triggers-table-be').removeClass('active');
+				$('#slave-panel-be').show();
+			},
+			onRed: function(){
+				$('#slave-panel-be').hide();
+				$('#triggers-table-be').addClass('active');	
+			},
+			triggers: triggersBE			
+		});
+		
+
+		new Legend({
+			id: 'mysql-legend',
+			data:[
+				{name: 'db01'},
+				{name: 'db02'},
+				{name: 'db05'},
+				{name: 'db06'},
+				{name: 'db07'},
+				{name: 'db08'},
+				{name: 'db09v'}
+			],
+			graphs: [
+				new Graph({
+					id: '.mysql-cpu',
+					maxY: 10, 
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'Load-Average(1min)',
+					greenLevel: 0,
+					yellowLevel: 5,
+					redLevel: 12,
+					items: [
+						{id: 'db01-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'kp-db01.panda-kp.ru'},
+						{id: 'db02-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'kp-db02.panda-kp.ru'},
+						{id: 'db05-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'kp-db05.panda-kp.ru'},
+						{id: 'db06-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'kp-db06.panda-kp.ru'},
+						{id: 'db07-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'kp-db07.panda-kp.ru'},
+						{id: 'db08-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'kp-db08.panda-kp.ru'},
+						{id: 'db09v-cpu-la', updater: 'zabbix', 'key_': 'system.cpu.load[percpu,avg1]', host: 'kp-db09v.panda-kp.ru'},
+					]
+				}),
+				new Graph({
+					id: '.mysql-connections',
+					maxY: 60, 
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'MySQL:Con/s',
+					greenLevel: 5,
+					yellowLevel: 50,
+					redLevel: 80,
+					items: [
+						{id: 'db01-connections', updater: 'zabbix', 'key_': 'mysql[connections]', host: 'kp-db01.panda-kp.ru'},
+						{id: 'db02-connections', updater: 'zabbix', 'key_': 'mysql[connections]', host: 'kp-db02.panda-kp.ru'},
+						{id: 'db05-connections', updater: 'zabbix', 'key_': 'mysql[connections]', host: 'kp-db05.panda-kp.ru'},
+						{id: 'db06-connections', updater: 'zabbix', 'key_': 'mysql[connections]', host: 'kp-db06.panda-kp.ru'},
+						{id: 'db07-connections', updater: 'zabbix', 'key_': 'mysql[connections]', host: 'kp-db07.panda-kp.ru'},
+						{id: 'db08-connections', updater: 'zabbix', 'key_': 'mysql[connections]', host: 'kp-db08.panda-kp.ru'},
+						{id: 'db09v-connections', updater: 'zabbix', 'key_': 'mysql[connections]', host: 'kp-db09v.panda-kp.ru'},
+					]
+				}),
+				new Graph({
+					id: '.replication-delay',
+					maxY: 5, 
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'REPLICATION DELAY',
+					greenLevel: 0,
+					yellowLevel: 1,
+					redLevel: 150,
+					items: [
+						{id: 'db01-replication-delay', updater: 'zabbix', 'key_': 'mysql[Seconds_Behind_Master]', host: 'kp-db01.panda-kp.ru'},
+						{id: 'db02-replication-delay', updater: 'zabbix', 'key_': 'mysql[Seconds_Behind_Master]', host: 'kp-db02.panda-kp.ru'},
+						{id: 'db05-replication-delay', updater: 'zabbix', 'key_': 'mysql[Seconds_Behind_Master]', host: 'kp-db05.panda-kp.ru'},
+						{id: 'db06-replication-delay', updater: 'zabbix', 'key_': 'mysql[Seconds_Behind_Master]', host: 'kp-db06.panda-kp.ru'},
+						{id: 'db07-replication-delay', updater: 'zabbix', 'key_': 'mysql[Seconds_Behind_Master]', host: 'kp-db07.panda-kp.ru'},
+						{id: 'db08-replication-delay', updater: 'zabbix', 'key_': 'mysql[Seconds_Behind_Master]', host: 'kp-db08.panda-kp.ru'},
+						{id: 'db09v-replication-delay', updater: 'zabbix', 'key_': 'mysql[Seconds_Behind_Master]', host: 'kp-db09v.panda-kp.ru'},
+					]
+				})
+			]
+		});
+
+		
+		
+		
+		
+		var triggersMysql = [];
+		var hosts = ['db01','db02','db05','db06','db07','db08','db09v'];
+		for(var id in hosts) {
+			var host = hosts[id];
+			triggersMysql.push(
+				new Trigger({
+					id: '.trigger-uptime-'+host,
+					trigger: {host: 'kp-'+host+'.panda-kp.ru', id: 'trigger-uptime-'+host, updater: 'zabbix', description: '{HOST.NAME} has just been restarted'},
+					interval: site.triggerInterval
+				}),
+				new Trigger({
+					id: '.trigger-cpu-'+host,
+					trigger: {host: 'kp-'+host+'.panda-kp.ru', id: 'trigger-cpu-'+host, updater: 'zabbix', description: 'Processor load is too high on {HOSTNAME}'},
+					interval: site.triggerInterval
+				}),
+				new Trigger({
+					id: '.trigger-io-'+host,
+					trigger: {host: 'kp-'+host+'.panda-kp.ru', id: 'trigger-io-'+host, updater: 'zabbix', description: 'Disk I/O is overloaded on {HOST.NAME}'},
+					interval: site.triggerInterval
+				}),
+				new Trigger({
+					id: '.trigger-replication-delay-'+host,
+					trigger: {host: 'kp-'+host+'.panda-kp.ru', id: 'trigger-replication-delay-'+host, updater: 'zabbix', description: 'repl for monitor'},
+					interval: site.triggerInterval
+				}),
+				new Trigger({
+					id: '.trigger-connections-'+host,
+					trigger: {host: 'kp-'+host+'.panda-kp.ru', id: 'trigger-connections-'+host, updater: 'zabbix', description: 'mysql connections 5<conn>80'},
+					interval: site.triggerInterval
+				})
+			);
+		}
+		
+		new TriggerPanel({ 
+			onGreen: function(){
+				
+			},
+			onRed: function(){
+					
+			},
+			triggers: triggersMysql
+		});
+
+		
+		new Legend({
+			id: 'redis-legend',
+			data:[
+				{name: 'connections'},
+				{name: 'requests'},
+			],
+			graphs:[
+				new Graph({
+					id: '.redis',
+					maxY: 2000, 
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'REDIS',
+					greenLevel: 0,
+					yellowLevel: 2000,
+					redLevel: 2500,
+					items: [
+						{id: 'redis-conn', updater: 'zabbix2', 'key_': 'redis_stats[127.0.0.1,6379,connections_per_sec]', host: 'kp-redis.panda-kp.ru'},
+						{id: 'redis-req', updater: 'zabbix2', 'key_': 'redis_stats[127.0.0.1,6379,requests_per_sec]', host: 'kp-redis.panda-kp.ru'}
+					]
+				})
+			]
+		});
+		new TriggerPanel({ 
+			onGreen: function(){
+				
+			},
+			onRed: function(){
+					
+			},
+			triggers: [
+				new Trigger({
+					id: '.trigger-uptime-redis',
+					trigger: {host: 'kp-redis.panda-kp.ru', id: 'trigger-uptime-redis', updater: 'zabbix2', description: '{HOST.NAME} has just been restarted'},
+					interval: site.triggerInterval,
+					name: 'UPTIME'
+				}),
+
+				new Trigger({
+					id: '.trigger-port-redis',
+					trigger: {host: 'kp-redis.panda-kp.ru', id: 'trigger-port-redis', updater: 'zabbix2', description: 'Redis port 6379 is not running'},
+					interval: site.triggerInterval,
+					name: 'PORT'
+				}),
+
+				new Trigger({
+					id: '.trigger-cpu-redis',
+					trigger: {host: 'kp-redis.panda-kp.ru', id: 'trigger-cpu-redis', updater: 'zabbix2', description: 'Processor load is too high on {HOSTNAME}'},
+					interval: site.triggerInterval,
+					name: 'CPU'
+				}),
+			]
+		});
+
+		
+		new Legend({
+			id: 'twemcache-legend',
+			data:[
+				{name: 'be-231'},
+				{name: 'be-232'},
+				{name: 'be-233'},
+				{name: 'be-234'},
+				{name: 'be-235'},
+				{name: 'be-236'},
+				{name: 'be-237'},
+				{name: 'be-238'},
+				{name: 'be-239'},
+				{name: 'be-240'},
+				{name: 'be-241'},
+				{name: 'be-242'}
+			],
+			graphs: [
+				new Graph({
+					id: '.twemcache-connections',
+					maxY: 100,
+					minY: 0,
+					period: 3600, 
+					intervalXtics: 600, 
+					name: 'TWEMCACHE conn',
+					greenLevel: 3,
+					yellowLevel: 200,
+					redLevel: 250,
+					
+					items: [
+						{id: '231-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-231'},
+						{id: '232-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-232'},
+						{id: '233-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-233'},
+						{id: '234-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-234'},
+						{id: '235-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-235'},
+						{id: '236-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-236'},
+						{id: '237-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-237'},
+						{id: '238-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-238'},
+						{id: '239-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-239'},
+						{id: '240-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-240'},
+						{id: '241-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-241'},
+						{id: '242-twemcache[alpha client_connections]', updater: 'zabbix', 'key_': 'twemcache[alpha client_connections]', host: 'be-242'},
+					]
+				})
+			]
+		});		
+
+	});
+</script>
+<div class="panels active">
+	<h2>BACKENDS</h2>
+	<canvas class="be-memory" width="600" height="350"></canvas>
+	<canvas class="be-httpd-count" width="600" height="350"></canvas>
+	<div id="be-legend" class="legends"></div>
+	
+	<table class="triggers-table" id="triggers-table-be" cellspacing=0>
+		<th></th><th>231</th><th>232</th><th>233</th><th>234</th><th>235</th><th>236</th><th>237</th><th>238</th><th>239</th><th>240</th><th>241</th><th>242</th>
+		<tr>
+			<td>CPU</td>
+			<td><canvas class="trigger-cpu-be-231" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-232" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-233" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-234" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-235" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-236" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-237" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-238" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-239" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-240" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-241" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-be-242" width="70" height="70"></canvas></td>
+		</tr>
+		<tr>
+			<td>MEM</td>
+			<td><canvas class="trigger-mem-be-231" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-232" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-233" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-234" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-235" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-236" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-237" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-238" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-239" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-240" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-241" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-mem-be-242" width="70" height="70"></canvas></td>
+		</tr>
+		</tr>
+		<tr>
+			<td>DISK</td>
+			<td><canvas class="trigger-disk-be-231" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-232" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-233" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-234" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-235" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-236" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-237" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-238" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-239" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-240" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-241" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-disk-be-242" width="70" height="70"></canvas></td>
+		</tr>
+		<tr>
+			<td>UPTIME</td>
+			<td><canvas class="trigger-uptime-be-231" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-232" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-233" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-234" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-235" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-236" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-237" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-238" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-239" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-240" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-241" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-be-242" width="70" height="70"></canvas></td>
+		</tr>
+		<tr>
+			<td>Apache-proc</td>
+			<td><canvas class="Apache-workers-be-231" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-232" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-233" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-234" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-235" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-236" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-237" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-238" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-239" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-240" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-241" width="70" height="70"></canvas></td>
+			<td><canvas class="Apache-workers-be-242" width="70" height="70"></canvas></td>
+		</tr>
+
+	</table>
+	<div class="slave-panel" id="slave-panel-be">
+		<canvas class="be-cpu" width="600" height="350"></canvas>
+		<canvas class="be-twemcache-connections" width="600" height="350"></canvas>
+		<canvas class="be-net-in-eth0" width="600" height="350"></canvas>
+	</div>
+</div>
+
+<div class="panels" style="position: relative">
+	<h2>MYSQL</h2>
+	<canvas class="mysql-cpu" width="600" height="350"></canvas>
+	<canvas class="mysql-connections" width="600" height="350"></canvas>
+	<canvas class="replication-delay" width="550" height="350"></canvas>
+	<div id="mysql-legend" class="legends" style="display: inline-block; vertical-align: top; width: 600px"></div>
+	<table id="mysql-triggers-table" class="triggers-table active" cellspacing="0">
+		<th></th><th>db01</th><th>db02</th><th>db05</th><th>db06</th><th>db07</th><th>db08</th><th>db09v</th>
+		<tr>
+			<td>UPTIME</td>
+			<td><canvas class="trigger-uptime-db01" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-db02" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-db05" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-db06" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-db07" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-db08" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-uptime-db09v" width="70" height="70"></canvas></td>
+		</tr>
+		<tr>
+			<td>CPU</td>
+			<td><canvas class="trigger-cpu-db01" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-db02" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-db05" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-db06" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-db07" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-db08" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-cpu-db09v" width="70" height="70"></canvas></td>
+		</tr>
+		</tr>
+		<tr>
+			<td>IO</td>
+			<td><canvas class="trigger-io-db01" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-io-db02" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-io-db05" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-io-db06" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-io-db07" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-io-db08" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-io-db09v" width="70" height="70"></canvas></td>			
+		</tr>
+		<tr>
+			<td>REPL</td>
+			<td><canvas class="trigger-replication-delay-db01" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-replication-delay-db02" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-replication-delay-db05" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-replication-delay-db06" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-replication-delay-db07" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-replication-delay-db08" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-replication-delay-db09v" width="70" height="70"></canvas></td>			
+		</tr>
+		<tr>
+			<td>Conn</td>
+			<td><canvas class="trigger-connections-db01" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-connections-db02" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-connections-db05" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-connections-db06" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-connections-db07" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-connections-db08" width="70" height="70"></canvas></td>
+			<td><canvas class="trigger-connections-db09v" width="70" height="70"></canvas></td>			
+		</tr>
+	</table>
+</div>
+
+<div class="panels">
+	<table>
+		<tr>
+			<td>
+				<h2>REDIS</h2>
+				<div id="redis-legend" class="legends"></div>
+			</td>
+			<td><canvas class="redis" width="900" height="350"></canvas></td>
+			<td>
+				<canvas class="trigger-uptime-redis" width="75" height="120"></canvas>
+				<canvas class="trigger-port-redis" width="75" height="120"></canvas>
+				<canvas class="trigger-cpu-redis" width="75" height="120"></canvas>
+			</td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h2>TWEMCACHE</h2>
+				<div id="twemcache-legend" class="legends"></div>
+			</td>
+			<td>
+				<canvas class="twemcache-connections" width="900" height="350"></canvas>
+			</td>
+		</tr>
+	</table>
+	
+</div>
+

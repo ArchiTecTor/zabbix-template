@@ -1,0 +1,8 @@
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "monitoring.graphs", "name" : "_id_" }
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "monitoring.items", "name" : "_id_" }
+{ "v" : 1, "key" : { "x" : 1, "id" : 1 }, "ns" : "monitoring.items", "name" : "x_1_id_1" }
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "monitoring.triggers", "name" : "_id_" }
+{ "v" : 1, "key" : { "id" : 1 }, "unique" : true, "ns" : "monitoring.triggers", "name" : "id_1" }
+{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "monitoring.autoupdate", "name" : "_id_" }
+{ "v" : 1, "key" : { "id" : 1, "type" : 1 }, "ns" : "monitoring.autoupdate", "name" : "id_1_type_1" }
+{ "v" : 1, "key" : { "id" : 1 }, "unique" : true, "ns" : "monitoring.autoupdate", "name" : "id_1" }
