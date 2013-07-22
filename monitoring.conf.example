@@ -1,0 +1,15 @@
+{
+	db_host => '127.0.0.1',
+	db_database => 'monitoring',
+	zabbix => {
+        url => 'http://127.0.0.1/zabbix/api_jsonrpc.php',
+        user => 'user',
+        password => 'password'
+    },
+#   another profile for update
+#	zabbix2 => {
+#        url => 'http://127.0.0.1/zabbix/api_jsonrpc.php',
+#        user => 'user',
+#        password => 'password'
+#    },
+}
